@@ -6,35 +6,28 @@
     <title>Karina tribute</title>
     <link rel="stylesheet" href="normalize.css" />
     <style>
-      html, body {
+      html,
+      body {
         margin: 0;
         padding: 0;
         height: 100%;
         overflow: hidden;
       }
-  
+
       .video-wrapper {
         position: relative;
         width: 100%;
         height: 100%;
         background: #000;
       }
-  
-      iframe {
+
+      .cover {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        border: none;
-        display: none; /* hidden initially */
-      }
-  
-      .cover {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: url('manushka.jpg') center center / cover no-repeat;
+        background: url("manushka.jpg") center center / cover no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -62,6 +55,24 @@
         border-bottom: 20px solid transparent;
       }
 
+      .container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: none;
+        background: black;
+      }
+
       @media (max-width: 768px) {
         .cover {
           background-size: contain;
@@ -74,25 +85,14 @@
           background-position: center center;
         }
       }
-      
-      video {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
-      background-color: black;
-    }
 
-    @media (max-width: 600px) {
-      video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+      @media (max-width: 600px) {
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
       }
-    }
 
       @media (orientation: portrait) {
         video {
@@ -102,33 +102,28 @@
       }
     </style>
   </head>
+
   <body>
     <div class="video-wrapper" id="videoWrapper">
-      <!-- <div class="cover" id="cover">
-        <div class="play-button-wrapper"><div class="play-button"></div></div>
-      </div> -->
+      <div class="container">
+        <div class="cover" id="cover">
+          <div class="play-button-wrapper"><div class="play-button"></div></div>
+        </div>
 
-      <!-- <iframe 
-        src="https://drive.google.com/file/d/1klb_FDFoMX9S7Q2tyjuqqoMViLp3TjLx/preview"
-        allow="autoplay"
-        allowfullscreen
-        id="videoIframe"
-        >
-      </iframe> -->
-
-      <video autoplay muted playsinline controls poster="manushka.jpg">
-        <source src="manushka.mp4" type="video/mp4" />
-      </video>
+        <video id="video" controls playsinline>
+          <source src="manushka.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
-    </iframe>
 
     <script>
-      const cover = document.getElementById('cover');
-      const iframe = document.getElementById('videoIframe');
-  
-      cover.addEventListener('click', () => {
-        cover.style.display = 'none';
-        iframe.style.display = 'block';
+      const cover = document.getElementById("cover");
+      const video = document.getElementById("video");
+
+      cover.addEventListener("click", () => {
+        cover.style.display = "none";
+        video.style.display = "block";
+        video.play();
       });
     </script>
   </body>
