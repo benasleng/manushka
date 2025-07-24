@@ -42,23 +42,24 @@
         z-index: 2;
       }
 
-      .play-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 120px;
-        height: 120px;
-        font-size: 3rem;
-        color: white;
-        background: rgba(0,0,0,0.5);
+      .play-button-wrapper {
+        background: rgba(0, 0, 0, 0.6);
         border-radius: 50%;
-        line-height: 1;
-        user-select: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+      }
 
-        > div {
-          padding-top: 5px;
-          padding-left: 10px;
-        }
+      .play-button {
+        position: relative;
+        left: 5px;
+        width: 0;
+        height: 0;
+        border-left: 35px solid white;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
       }
 
       @media (max-width: 768px) {
@@ -78,7 +79,7 @@
   <body>
     <div class="video-wrapper" id="videoWrapper">
       <div class="cover" id="cover">
-        <div class="play-button"><div>▶</div></div>
+        <div class="play-button-wrapper"><div class="play-button"></div></div>
       </div>
 
       <iframe 
