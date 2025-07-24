@@ -74,21 +74,51 @@
           background-position: center center;
         }
       }
+      
+      video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      background-color: black;
+    }
+
+    @media (max-width: 600px) {
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+      @media (orientation: portrait) {
+        video {
+          object-fit: contain;
+          background-color: black;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="video-wrapper" id="videoWrapper">
-      <div class="cover" id="cover">
+      <!-- <div class="cover" id="cover">
         <div class="play-button-wrapper"><div class="play-button"></div></div>
-      </div>
+      </div> -->
 
-      <iframe 
+      <!-- <iframe 
         src="https://drive.google.com/file/d/1klb_FDFoMX9S7Q2tyjuqqoMViLp3TjLx/preview"
         allow="autoplay"
         allowfullscreen
         id="videoIframe"
-        autoplay=1>
-      </iframe>
+        >
+      </iframe> -->
+
+      <video autoplay muted playsinline controls poster="manushka.jpg">
+        <source src="manushka.mp4" type="video/mp4" />
+      </video>
     </div>
     </iframe>
 
