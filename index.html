@@ -62,14 +62,10 @@
       }
 
       video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        display: none;
         width: 100%;
         height: 100%;
         object-fit: contain;
-        display: none;
         background: black;
       }
 
@@ -86,18 +82,17 @@
         }
       }
 
-      @media (max-width: 600px) {
-        video {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-        }
-      }
-
       @media (orientation: portrait) {
         video {
           object-fit: contain;
           background-color: black;
+        }
+      }
+
+      @media (max-width: 960px) {
+        video {
+          height: 100%;
+          object-fit: cover;
         }
       }
     </style>
