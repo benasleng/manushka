@@ -122,12 +122,13 @@
 
     <script>
       const cover = document.getElementById("cover");
-      const title = document.getElementById("title");
       const video = document.getElementById("video");
 
       cover.addEventListener("click", () => {
         cover.style.display = "none";
         video.style.display = "block";
+        video.muted = false;
+
         video.play();
       });
     </script>
