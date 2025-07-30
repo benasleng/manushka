@@ -75,7 +75,7 @@
       }
 
       .video-title {
-        display: none;
+        display: block;
         top: 30px;
         padding: 30px 0;
         z-index: 1000;
@@ -140,7 +140,7 @@
 
       cover.addEventListener("click", () => {
         cover.style.display = "none";
-        title.style.display = "block";
+        title.style.display = "none";
         video.style.display = "block";
         video.play();
       });
